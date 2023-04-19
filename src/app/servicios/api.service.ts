@@ -6,6 +6,7 @@ import {LoginI} from "../modelos/login.interface";
 import {listaContactoI} from "../modelos/listaContacto.interface";
 import {ContactoI} from "../modelos/contacto.interface";
 import {ChatI} from "../modelos/chat.interface";
+import {PerfilI} from "../modelos/perfil.interface";
 import {CrearCuentaI} from "../modelos/crearCuenta.interface";
 import {listaPerfilI} from "../modelos/listaPerfil.interface";
 
@@ -59,6 +60,12 @@ export class ApiService {
 
   postContacto(form : ContactoI) : Observable<ResponseI>{
     let direccion = this.url + 'api/contacto/save';
+    return this.http.post<ResponseI>(direccion,form);
+  }
+
+
+  postPerfil(form : PerfilI) : Observable<ResponseI>{
+    let direccion = this.url + 'api/perfil/save';
     return this.http.post<ResponseI>(direccion,form);
   }
 

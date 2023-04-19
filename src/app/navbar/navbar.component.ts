@@ -31,6 +31,15 @@ export class NavbarComponent implements OnInit{
     }
   }
 
+  isAuth(){
+    return this.auth.isLoggedIn();
+  }
+
+  logout(){
+    localStorage.removeItem("token");
+    this.router.navigate(['login']);
+  }
+
 
   onLogin(form:LoginI){
     this.api.loginByUsername(form).subscribe(data=>{

@@ -17,12 +17,14 @@
         <li class="nav-item">
           <a class="nav-link" href="chat">Chat</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="perfil">Perfil</a>
-        </li>
       </ul>
+      <li class="d-flex"><a class="nav-link" href="perfil"><img class="rounded-circle my-1" width="60px" style="margin-right: 20px" src="https://cdn1.iconfinder.com/data/icons/user-pictures/101/malecostume-256.png"></a></li>
+
       <li class="d-flex">
-        <a href="login" class="btn btn-outline-light my-1 my-sm-0" type="submit" *ngIf="!isAuthenticated" (click)="onLogin(loginForm.value)">Login</a>
+        <a href="login" class="btn btn-outline-light my-1 my-sm-0" type="submit" *ngIf="!isAuth" (click)="onLogin(loginForm.value)">Login</a>
+      </li>
+      <li class="d-flex">
+        <a href="login" class="btn btn-outline-light my-1 my-sm-0" type="submit" *ngIf="isAuth" (click)="logout()">Logout</a>
       </li>
     </div>
   </div>

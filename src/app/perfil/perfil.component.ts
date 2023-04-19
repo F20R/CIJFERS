@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ApiService} from "../servicios/api.service";
 import {Router} from "@angular/router";
 import {HttpClient} from "@angular/common/http";
+import {FormControl, FormGroup} from "@angular/forms";
 
 @Component({
   selector: 'app-perfil',
@@ -11,6 +12,14 @@ import {HttpClient} from "@angular/common/http";
 export class PerfilComponent implements OnInit{
 
   perfiles:any;
+
+  nuevoForm = new FormGroup({
+    nombre : new FormControl(''),
+    apellidos : new FormControl(''),
+    sexo : new FormControl(''),
+    edad : new FormControl(''),
+    usuario : new FormControl('fet')
+  })
 
   constructor(private api : ApiService, private router:Router, private http: HttpClient) {
   }
@@ -41,6 +50,12 @@ export class PerfilComponent implements OnInit{
     })
     this.http.delete('http://127.0.0.1:8000/api/contacto/delete', {body} ).subscribe()
 
+  }
+
+  postFormP(form :any){
+    this.api.postPerfil(form).subscribe(data =>{
+      console.log(data);
+    })
   }
 
   nuevoContacto(){
