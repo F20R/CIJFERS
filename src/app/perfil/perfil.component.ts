@@ -16,10 +16,21 @@ export class PerfilComponent implements OnInit{
   nuevoForm = new FormGroup({
     nombre : new FormControl(''),
     apellidos : new FormControl(''),
+    telefono : new FormControl(''),
     sexo : new FormControl(''),
     edad : new FormControl(''),
     usuario : new FormControl('fet')
   })
+
+  transformarValor(valor: number): string {
+    if (valor === 1) {
+      return 'Masculino';
+    } else if (valor === 0) {
+      return 'Femenino';
+    } else {
+      return 'Otro';
+    }
+  }
 
   constructor(private api : ApiService, private router:Router, private http: HttpClient) {
   }

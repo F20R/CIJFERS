@@ -18,12 +18,12 @@ export class ApiService {
   url:string = "http://127.0.0.1:8000/";
 
 
+
   headers = new Headers();
   constructor(private http:HttpClient) {
     this.headers.append("Content-Type", "application/json");
-    this.headers.append("Authorization", "Bearer" + localStorage.getItem('token'));
+    this.headers.append("Authorization", 'token');
   }
-
 
 
   loginByUsername(form:LoginI):Observable<ResponseI>{
@@ -38,13 +38,29 @@ export class ApiService {
 
 
   getContactosId():Observable<listaContactoI[]>{
-    let direccion = this.url + 'api/usuario/list/id'+ {headers : this.headers};
-    return this.http.get<listaContactoI[]>(direccion);
+    let direccion = this.url + 'api/contacto/list/id';
+    let token = localStorage.getItem('token')!;
+    const httpHeaders = new HttpHeaders({
+      'token': token
+    })
+    return this.http.get<listaContactoI[]>(direccion, {headers: httpHeaders});
+  }
+
+  getContactoID(){
+    let reqHeader = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + localStorage.getItem('token')
+    });
+    return this.http.get<listaContactoI[]>(`http://127.0.0.1:8000/api/galeria/list/id`, { headers: reqHeader });
   }
 
   getPerfilId():Observable<listaPerfilI[]>{
-    let direccion = this.url + 'api/perfil/list/id'+ {headers : this.headers};
-    return this.http.get<listaPerfilI[]>(direccion);
+    let direccion = this.url + 'api/perfil/list/id';
+    let token = localStorage.getItem('token')!;
+    const httpHeaders = new HttpHeaders({
+      'token': token
+    })
+    return this.http.get<listaPerfilI[]>(direccion, {headers: httpHeaders});
   }
 
   eliminarContacto(from : ContactoI):Observable<ResponseI>{

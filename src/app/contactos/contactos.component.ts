@@ -24,15 +24,17 @@ export class ContactosComponent implements OnInit{
 
   ngOnInit(): void {
     this.obtenerDatos();
+
   }
 
   obtenerDatos(){
-    this.api.getAllContactos().subscribe(resp => {
+    this.api.getContactosId().subscribe(resp => {
       this.contactos = resp;
       localStorage.getItem('token')
       console.log(this.contactos)
     })
   }
+
 
   Redirect(){
     this.router.navigate(['chat'])
@@ -49,6 +51,8 @@ export class ContactosComponent implements OnInit{
     this.http.delete('http://127.0.0.1:8000/api/contacto/delete', {body} ).subscribe()
 
   }
+
+
 
   nuevoContacto(){
     this.router.navigate(['nuevo'])
