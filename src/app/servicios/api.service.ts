@@ -9,6 +9,7 @@ import {ChatI} from "../modelos/chat.interface";
 import {PerfilI} from "../modelos/perfil.interface";
 import {CrearCuentaI} from "../modelos/crearCuenta.interface";
 import {listaPerfilI} from "../modelos/listaPerfil.interface";
+import {CrearContactoI} from "../modelos/crearContacto.interface";
 
 @Injectable({
   providedIn: 'root'
@@ -29,6 +30,12 @@ export class ApiService {
   loginByUsername(form:LoginI):Observable<ResponseI>{
     let direccion = this.url + 'api/login/auth';
     return this.http.post<ResponseI>(direccion , form);
+  }
+
+
+  postContacto(form : CrearContactoI) : Observable<ResponseI>{
+    let direccion = this.url + 'api/contacto/save/guardar';
+    return this.http.post<ResponseI>(direccion,form);
   }
 
   getAllContactos():Observable<listaContactoI[]>{
@@ -74,10 +81,7 @@ export class ApiService {
     return this.http.delete<ResponseI>(direccion,Options);
   }
 
-  postContacto(form : ContactoI) : Observable<ResponseI>{
-    let direccion = this.url + 'api/contacto/save';
-    return this.http.post<ResponseI>(direccion,form);
-  }
+
 
 
   postPerfil(form : PerfilI) : Observable<ResponseI>{

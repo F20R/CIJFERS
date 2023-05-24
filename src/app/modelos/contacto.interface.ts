@@ -1,5 +1,5 @@
 export interface ContactoI {
-  id: string;
+  id: any;
   nombre: string;
   usuario : string;
   telefono : string;

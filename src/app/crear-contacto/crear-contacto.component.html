@@ -1,0 +1,21 @@
+<app-navbar></app-navbar>
+<div class="container rounded bg-white mt-5 mb-5" *ngFor="let nuevo of nuevos">
+  <div class="row">
+    <div class="col-md-5 border-right">
+      <form class="p-3 py-5" [formGroup]="nuevoForm" (ngSubmit)="postForm(nuevoForm.value)" method="post">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+          <h4 class="text-right">Crear Nuevo Contacto</h4>
+        </div>
+        <div class="row mt-2">
+          <div class="col-md-6"><label class="labels">Nombre Completo</label><input type="text" class="form-control" placeholder="Introduce nombre completo" formControlName="nombre"/></div>
+          <div class="col-md-6"><label class="labels">Nombre de Usuario</label><input  type="text" class="form-control" placeholder="Introduce nombre de usuario" formControlName="nombre_usuario"></div>
+        </div>
+        <div class="row mt-3">
+          <div class="col-md-12"><label class="labels">Nº Teléfono</label><input  type="text" class="form-control" placeholder="Introduce número de teléfono" formControlName="telefono"></div>
+          <div class="col-md-6"><label class="labels">Guardado en : </label><input  [(ngModel)]="nuevo.username" type="text" class="form-control" placeholder="Introduce nombre de usuario" formControlName="usuario"></div>
+        </div>
+        <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="submit">Save Contacto</button></div>
+      </form>
+    </div>
+  </div>
+</div>

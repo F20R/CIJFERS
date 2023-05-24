@@ -54,6 +54,7 @@ export class ContactosComponent implements OnInit{
 
 
 
+
   nuevoContacto(){
     this.router.navigate(['nuevo'])
   }
