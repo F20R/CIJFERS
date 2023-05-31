@@ -34,7 +34,7 @@ export class LoginComponent implements OnInit{
       let dataResponse:ResponseI = data;
       if(dataResponse.token){
         localStorage.setItem("token", dataResponse.token);
-        this.router.navigate(['crear']);
+        this.router.navigate(['chat']);
       }
     });
 

@@ -14,6 +14,7 @@ import { PerfilComponent } from './perfil/perfil.component';
 import {HttpClientModule} from "@angular/common/http";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { CrearContactoComponent } from './crear-contacto/crear-contacto.component';
+import { ChatComponent } from './chat/chat.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { CrearContactoComponent } from './crear-contacto/crear-contacto.componen
     RegistroComponent,
     ContactosComponent,
     PerfilComponent,
-    CrearContactoComponent
+    CrearContactoComponent,
+    ChatComponent
   ],
   imports: [
     BrowserModule,

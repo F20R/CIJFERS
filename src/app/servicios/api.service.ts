@@ -10,6 +10,7 @@ import {PerfilI} from "../modelos/perfil.interface";
 import {CrearCuentaI} from "../modelos/crearCuenta.interface";
 import {listaPerfilI} from "../modelos/listaPerfil.interface";
 import {CrearContactoI} from "../modelos/crearContacto.interface";
+import {listaChatI} from "../modelos/listaChat.interface";
 
 @Injectable({
   providedIn: 'root'
@@ -89,14 +90,13 @@ export class ApiService {
     return this.http.post<ResponseI>(direccion,form);
   }
 
-  getChat():Observable<ChatI[]>{
-    let direccion = this.url + 'api/chat/list/id2';
-    return this.http.get<ChatI[]>(direccion)
-  }
-
-  getChatR():Observable<ChatR[]>{
-    let direccion = this.url + 'api/chat/list/id';
-    return this.http.get<ChatR[]>(direccion)
+  getChatR(idReceptor:string):Observable<listaChatI[]>{
+    let direccion = this.url + 'api/chat/list/id/listar?idReceptor=' + idReceptor;
+    let token = localStorage.getItem('token')!;
+    const httpHeaders = new HttpHeaders({
+      'token': token
+    })
+    return this.http.get<listaChatI[]>(direccion, {headers: httpHeaders})
   }
 
 
@@ -106,7 +106,7 @@ export class ApiService {
   }
 
   postChat1(form : ChatI) : Observable<ResponseI>{
-    let direccion = this.url + 'api/chat/save';
+    let direccion = this.url + 'api/chat/guarda';
     return this.http.post<ResponseI>(direccion,form);
   }
 

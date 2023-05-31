@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ApiService} from "../servicios/api.service";
 import {Router} from "@angular/router";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {ContactoI} from "../modelos/contacto.interface";
 
 @Component({
   selector: 'app-contactos',
@@ -27,6 +28,14 @@ export class ContactosComponent implements OnInit{
 
   }
 
+  transformarValor(bloqueado: number): string {
+    if (bloqueado === 1) {
+      return 'Masculino';
+    } else {
+      return 'Femenino';
+    }
+  }
+
   obtenerDatos(){
     this.api.getContactosId().subscribe(resp => {
       this.contactos = resp;
@@ -37,7 +46,8 @@ export class ContactosComponent implements OnInit{
 
 
   Redirect(){
-    this.router.navigate(['chat'])
+    //PARAMETRO
+    this.router.navigate(['chat'], //^PAREMTRO )
   }
 
   eliminarUser={

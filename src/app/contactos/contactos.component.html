@@ -11,6 +11,7 @@
         <th>Telefono</th>
         <th>FUNCION</th>
         <th>FUNCION 2</th>
+        <th>FUNCION 3</th>
       </tr>
       </thead>
     </table>
@@ -24,13 +25,15 @@
         <td>{{contacto.nombre}}</td>
         <td>{{contacto.nombreUsuario}}</td>
         <td>{{contacto.telefono}}</td>
-        <td> <button class="btn" style="background-color: #D68910; color: #f0f3f4">CHAT</button></td>
+        <td> <button class="btn" style="background-color: #D68910; color: #f0f3f4" (click)="" >CHAT</button></td>
         <td> <button class="btn" style="background-color: #931205; color: #f0f3f4"> ELIMINAR</button> </td>
+        <td> <button class="btn" style="background-color: #D68910; color: #f0f3f4">{{transformarValor(contacto.bloqueado)}}</button></td>
       </tr>
 
       </tbody>
     </table>
   </div>
+  <button class="btn" style="background-color: #D68910; color: #f0f3f4; margin-top: 10px"><a href="crear">Crear Contacto</a> </button>
 </section>
 
 

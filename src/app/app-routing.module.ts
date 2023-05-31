@@ -6,6 +6,7 @@ import {RegistroComponent} from "./registro/registro.component";
 import {ContactosComponent} from "./contactos/contactos.component";
 import {PerfilComponent} from "./perfil/perfil.component";
 import {CrearContactoComponent} from "./crear-contacto/crear-contacto.component";
+import {ChatComponent} from "./chat/chat.component";
 
 const routes: Routes = [
 
@@ -14,7 +15,8 @@ const routes: Routes = [
   {path:'registro', component:RegistroComponent},
   {path:'contacto', component:ContactosComponent},
   {path:'perfil', component:PerfilComponent},
-  {path:'crear', component:CrearContactoComponent}
+  {path:'crear', component:CrearContactoComponent},
+  {path:'chat', component:ChatComponent}
 ];
 
 @NgModule({

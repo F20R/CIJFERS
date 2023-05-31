@@ -53,7 +53,9 @@ export class CrearContactoComponent implements OnInit{
   postForm(form :any){
     this.api.postContacto(form).subscribe(data =>{
       console.log(data);
+
     })
+    this.router.navigate(['contacto']);
   }
 
 
