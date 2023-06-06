@@ -25,9 +25,9 @@
         <td>{{contacto.nombre}}</td>
         <td>{{contacto.nombreUsuario}}</td>
         <td>{{contacto.telefono}}</td>
-        <td> <button class="btn" style="background-color: #D68910; color: #f0f3f4" (click)="" >CHAT</button></td>
-        <td> <button class="btn" style="background-color: #931205; color: #f0f3f4"> ELIMINAR</button> </td>
-        <td> <button class="btn" style="background-color: #D68910; color: #f0f3f4">{{transformarValor(contacto.bloqueado)}}</button></td>
+        <td> <button class="btn" style="background-color: #D68910; color: #f0f3f4"><a [routerLink]="['/chat', contacto.nombreUsuario]">CHAT</a></button></td>
+        <td> <button type="button" class="btn" style="background-color: #931205; color: #f0f3f4" (click)="eliminar(contacto)"> ELIMINAR</button> </td>
+        <td> <button class="btn" style="background-color: green; color: #f0f3f4" (click)="toggleBlocked(contacto)">CAMBIA</button></td>
       </tr>
 
       </tbody>
@@ -40,20 +40,6 @@
 <!-- follow me template -->
 <div class="made-with-love">
   Made it by
-  <a target="_blank" href="https://codepen.io/nikhil8krishnan">EL FENOMENAL</a>
+  <a target="_blank" href="https://codepen.io/nikhil8krishnan">CIJFERS</a>
 </div>
 
-
-<!--
-<tr class="table-primary">
-        <th scope="row">Fernand10s</th>
-        <td>640125461</td>
-        <td>Zumbao@gmail.com</td>
-        <td>
-          <button class="btn btn-warning"> CHAT</button>
-          &nbsp;
-          <button class="btn" style="background-color: #931205; color: #f0f3f4"> ELIMINAR</button>
-        </td>
-      </tr>
-
--->

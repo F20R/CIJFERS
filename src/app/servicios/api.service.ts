@@ -29,13 +29,13 @@ export class ApiService {
 
 
   loginByUsername(form:LoginI):Observable<ResponseI>{
-    let direccion = this.url + 'api/login/auth';
+    let direccion = this.url + 'api/login/aut';
     return this.http.post<ResponseI>(direccion , form);
   }
 
 
   postContacto(form : CrearContactoI) : Observable<ResponseI>{
-    let direccion = this.url + 'api/contacto/save/guardar';
+    let direccion = this.url + 'api/contacto/guardar';
     return this.http.post<ResponseI>(direccion,form);
   }
 
@@ -90,8 +90,8 @@ export class ApiService {
     return this.http.post<ResponseI>(direccion,form);
   }
 
-  getChatR(idReceptor:string):Observable<listaChatI[]>{
-    let direccion = this.url + 'api/chat/list/id/listar?idReceptor=' + idReceptor;
+  getChatR():Observable<listaChatI[]>{
+    let direccion = this.url + 'api/chat/list/id/listar';
     let token = localStorage.getItem('token')!;
     const httpHeaders = new HttpHeaders({
       'token': token
