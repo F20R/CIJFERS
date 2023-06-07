@@ -7,16 +7,17 @@ import {ContactosComponent} from "./contactos/contactos.component";
 import {PerfilComponent} from "./perfil/perfil.component";
 import {CrearContactoComponent} from "./crear-contacto/crear-contacto.component";
 import {ChatComponent} from "./chat/chat.component";
+import {AuthGuard} from "./auth.guard";
 
 const routes: Routes = [
 
   {path:'', component:HomeComponent},
   {path:'login', component:LoginComponent},
   {path:'registro', component:RegistroComponent},
-  {path:'contacto', component:ContactosComponent},
+  {path:'contacto', component:ContactosComponent ,canActivate: [AuthGuard]},
   {path:'perfil', component:PerfilComponent},
   {path:'crear', component:CrearContactoComponent},
-  {path:'chat', component:ChatComponent}
+  {path:'chat/:nombreUsuario', component:ChatComponent}
 ];
 
 @NgModule({

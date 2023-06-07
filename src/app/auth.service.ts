@@ -5,8 +5,15 @@ import { Injectable } from '@angular/core';
 })
 export class AuthService {
   private loggedIn = false;
+  private token: string;
 
-  constructor() { }
+  constructor() {
+    this.token = localStorage.getItem('token') ?? '';
+  }
+
+  getToken() {
+    return this.token;
+  }
 
   login() {
     this.loggedIn = true;
@@ -17,6 +24,6 @@ export class AuthService {
   }
 
   isLoggedIn() {
-    return this.loggedIn;
+    return this.getToken() !== '';
   }
 }

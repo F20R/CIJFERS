@@ -22,13 +22,10 @@ export class NavbarComponent implements OnInit{
   constructor(private api:ApiService, private router:Router, private auth:AuthService) {
   }
 
-  ngOnInit() {
-  }
+  token: any;
 
-  checkLocalStorage(){
-    if(localStorage.getItem('token')){
-      this.router.navigate(['contacto'])
-    }
+  ngOnInit() {
+    this.token = this.auth.getToken();
   }
 
   isAuth(){

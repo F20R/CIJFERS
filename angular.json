@@ -25,6 +25,7 @@
               "src/assets"
             ],
             "styles": [
+              "src/custom-theme.scss",
               "bootswatch/dist/lux/bootstrap.min.css",
               "src/styles.css"
             ],

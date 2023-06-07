@@ -47,19 +47,41 @@ export class ContactosComponent implements OnInit{
 
   Redirect(){
     //PARAMETRO
-    this.router.navigate(['chat'], //^PAREMTRO )
+    this.router.navigate(['chat'] )
   }
 
-  eliminarUser={
-    'id':'31'
-  }
-  eliminar(){
-
+  eliminar(contacto: any){
     const body = JSON.stringify({
-      'id': this.eliminarUser.id
+      'id': contacto.id
     })
-    this.http.delete('http://127.0.0.1:8000/api/contacto/delete', {body} ).subscribe()
+    this.http.delete('http://127.0.0.1:8000/api/contacto/delete', {body} ).subscribe(() => {
+      setTimeout(() => {
+        location.reload();
+      }, 1000);
+    })
 
+  }
+
+  apiUrl = 'http://127.0.0.1:8000';
+
+  toggleBlocked(contacto: any) {
+    contacto.bloqueado = !contacto.bloqueado;
+
+    const url = `${this.apiUrl}/api/contacto/editar/${contacto.id}`;
+    const body = JSON.stringify(contacto);
+
+    this.http.post(url, body, {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }).subscribe(
+      (response) => {
+        console.log('Contacto editado correctamente');
+      },
+      (error) => {
+        console.log('Error al editar el contacto');
+      }
+    );
   }
 
 

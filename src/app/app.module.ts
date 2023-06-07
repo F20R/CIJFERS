@@ -15,6 +15,8 @@ import {HttpClientModule} from "@angular/common/http";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { CrearContactoComponent } from './crear-contacto/crear-contacto.component';
 import { ChatComponent } from './chat/chat.component';
+import {BrowserAnimationsModule, NoopAnimationsModule} from '@angular/platform-browser/animations';
+import {ToastrModule} from "ngx-toastr";
 
 @NgModule({
   declarations: [
@@ -35,7 +37,10 @@ import { ChatComponent } from './chat/chat.component';
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    NoopAnimationsModule,
+    ToastrModule.forRoot(),
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

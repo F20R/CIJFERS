@@ -90,8 +90,8 @@ export class ApiService {
     return this.http.post<ResponseI>(direccion,form);
   }
 
-  getChatR(idReceptor:string):Observable<listaChatI[]>{
-    let direccion = this.url + 'api/chat/list/id/listar?idReceptor=' + idReceptor;
+  getChatR():Observable<listaChatI[]>{
+    let direccion = this.url + 'api/chat/list/id/listar?idReceptor=';
     let token = localStorage.getItem('token')!;
     const httpHeaders = new HttpHeaders({
       'token': token

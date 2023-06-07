@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ApiService} from "../servicios/api.service";
-import {Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {HttpClient} from "@angular/common/http";
 import {FormControl, FormGroup} from "@angular/forms";
 
@@ -17,7 +17,7 @@ export class ChatComponent implements OnInit{
   rece:any;
 
 
-  constructor(private api : ApiService, private router:Router, private http: HttpClient) {
+  constructor(private api : ApiService, private router:Router, private http: HttpClient, public route:ActivatedRoute) {
   }
 
   chatForm = new FormGroup({
@@ -28,8 +28,9 @@ export class ChatComponent implements OnInit{
   })
 
   ngOnInit() {
+    console.log(this.route.snapshot.paramMap.get("nombreUsuario"))
     this.id_receptor = //COMO OBTENER EL PARAMTRO A PARTIR DE LA OTRA URL
-    this.obtenerDatos()
+      this.obtenerDatos()
   }
 
   obtenerDatos(){
