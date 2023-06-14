@@ -72,22 +72,6 @@ export class ContactosComponent implements OnInit{
     // Aquí debe enviar una solicitud a su base de datos para actualizar el valor de la propiedad Bloqueado.
   }
 
-  nuevoContacto(){
-    this.router.navigate(['nuevo'])
-  }
-
-  RedirectCrearCuenta(){
-    this.router.navigate(['login'])
-  }
-
-  RedirectCrearCuenta1(){
-    this.router.navigate(['crearCuenta'])
-  }
-
-  RedirectContactos(){
-    this.router.navigate(['contacto'])
-  }
-
 
   logout(){
     localStorage.removeItem("token");

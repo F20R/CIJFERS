@@ -1,7 +1,7 @@
 export interface listaChatI{
-  mensaje?: any;
-  emisor: any;
-  receptor : any;
+  mensaje: any;
+  id_emisor: any;
+  id_receptor : any;
   fecha:any;
   token: any;
 }

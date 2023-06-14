@@ -1,5 +1,5 @@
 export interface ChatI{
-  mensaje?: any;
+  mensaje: any;
   emisor: any;
   receptor : any;
   fecha:any;

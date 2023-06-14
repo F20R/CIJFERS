@@ -13,7 +13,7 @@ export class ChatComponent implements OnInit{
 
   chats : any;
   id_receptor : any;
-  emi:any;
+  emi: any;
   rece:any;
 
 
@@ -28,16 +28,14 @@ export class ChatComponent implements OnInit{
   })
 
   ngOnInit() {
-    console.log(this.route.snapshot.paramMap.get("nombreUsuario"))
-    this.id_receptor = //COMO OBTENER EL PARAMTRO A PARTIR DE LA OTRA URL
     this.obtenerDatos()
   }
 
   obtenerDatos(){
     this.api.getChatR().subscribe(resp => {
-      this.chats = resp;
       localStorage.getItem('token')
-      console.log(this.chats)
+      this.emi = resp;
+      console.log(this.emi)
     })
   }
 
