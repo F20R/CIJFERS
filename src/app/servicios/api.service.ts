@@ -11,6 +11,8 @@ import {CrearCuentaI} from "../modelos/crearCuenta.interface";
 import {listaPerfilI} from "../modelos/listaPerfil.interface";
 import {CrearContactoI} from "../modelos/crearContacto.interface";
 import {listaChatI} from "../modelos/listaChat.interface";
+import {listaImagenesI} from "../modelos/listaImagenes.interface";
+import {CrearImagenI} from "../modelos/crearImagen.interface";
 
 @Injectable({
   providedIn: 'root'
@@ -25,6 +27,7 @@ export class ApiService {
   constructor(private http:HttpClient) {
     this.headers.append("Content-Type", "application/json");
     this.headers.append("Authorization", 'token');
+
   }
 
 
@@ -36,6 +39,11 @@ export class ApiService {
 
   postContacto(form : CrearContactoI) : Observable<ResponseI>{
     let direccion = this.url + 'api/contacto/save/guardar';
+    return this.http.post<ResponseI>(direccion,form);
+  }
+
+  postNuevaImagen(form : CrearImagenI) : Observable<ResponseI>{
+    let direccion = this.url + 'api/galeria/guardar/nueva';
     return this.http.post<ResponseI>(direccion,form);
   }
 
@@ -52,6 +60,15 @@ export class ApiService {
       'token': token
     })
     return this.http.get<listaContactoI[]>(direccion, {headers: httpHeaders});
+  }
+
+  getImagenesId():Observable<listaImagenesI[]>{
+    let direccion = this.url + 'api/galeria/list/id';
+    let token = localStorage.getItem('token')!;
+    const httpHeaders = new HttpHeaders({
+      'token': token
+    })
+    return this.http.get<listaImagenesI[]>(direccion, {headers: httpHeaders});
   }
 
   getContactoID(){

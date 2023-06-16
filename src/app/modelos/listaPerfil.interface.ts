@@ -5,4 +5,6 @@ export interface listaPerfilI{
   Sexo : string;
   Edad : string;
   id_usuario: string;
+
+  token : any;
 }

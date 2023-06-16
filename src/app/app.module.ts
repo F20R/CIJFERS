@@ -17,6 +17,8 @@ import { CrearContactoComponent } from './crear-contacto/crear-contacto.componen
 import { ChatComponent } from './chat/chat.component';
 import {BrowserAnimationsModule, NoopAnimationsModule} from '@angular/platform-browser/animations';
 import {ToastrModule} from "ngx-toastr";
+import { GaleriaComponent } from './galeria/galeria.component';
+import { NuevaImagenComponent } from './nueva-imagen/nueva-imagen.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import {ToastrModule} from "ngx-toastr";
     ContactosComponent,
     PerfilComponent,
     CrearContactoComponent,
-    ChatComponent
+    ChatComponent,
+    GaleriaComponent,
+    NuevaImagenComponent
   ],
   imports: [
     BrowserModule,
