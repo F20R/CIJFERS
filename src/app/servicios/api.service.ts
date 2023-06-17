@@ -13,6 +13,7 @@ import {CrearContactoI} from "../modelos/crearContacto.interface";
 import {listaChatI} from "../modelos/listaChat.interface";
 import {listaImagenesI} from "../modelos/listaImagenes.interface";
 import {CrearImagenI} from "../modelos/crearImagen.interface";
+import {CrearPerfilI} from "../modelos/crearPerfil.interface";
 
 @Injectable({
   providedIn: 'root'
@@ -102,7 +103,7 @@ export class ApiService {
 
 
 
-  postPerfil(form : PerfilI) : Observable<ResponseI>{
+  postPerfil(form : CrearPerfilI) : Observable<ResponseI>{
     let direccion = this.url + 'api/perfil/save';
     return this.http.post<ResponseI>(direccion,form);
   }

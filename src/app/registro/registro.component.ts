@@ -10,6 +10,8 @@ import {Router} from "@angular/router";
 })
 export class RegistroComponent implements OnInit{
 
+  registros : any;
+
   crearForm = new FormGroup({
     username : new FormControl(''),
     password : new FormControl(''),
@@ -19,17 +21,25 @@ export class RegistroComponent implements OnInit{
   constructor(private api : ApiService, private router: Router) { }
 
   ngOnInit(): void {
+
   }
+
+  obtenerDatos(){
+    this.api.getAllContactos().subscribe(resp => {
+      this.registros = resp;
+      console.log(this.registros)
+    })
+  }
+
 
   postCrear(form :any){
     this.api.postCrearCuenta(form).subscribe(data =>{
       console.log(data);
     })
-    window.location.href = "/login";
   }
 
-  RedirectCrearCuenta(){
-    this.router.navigate(['login'])
+  RedirectCrearPerfil(){
+    this.router.navigate(['crearPerfil'])
   }
 
   RedirectCrearCuenta1(){

@@ -19,6 +19,7 @@ import {BrowserAnimationsModule, NoopAnimationsModule} from '@angular/platform-b
 import {ToastrModule} from "ngx-toastr";
 import { GaleriaComponent } from './galeria/galeria.component';
 import { NuevaImagenComponent } from './nueva-imagen/nueva-imagen.component';
+import { CrearPerfilComponent } from './crear-perfil/crear-perfil.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { NuevaImagenComponent } from './nueva-imagen/nueva-imagen.component';
     CrearContactoComponent,
     ChatComponent,
     GaleriaComponent,
-    NuevaImagenComponent
+    NuevaImagenComponent,
+    CrearPerfilComponent
   ],
   imports: [
     BrowserModule,
