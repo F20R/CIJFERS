@@ -45,7 +45,7 @@ body {
   transform: translate(-50%, -50%); }
 #chat .chat__conversation-board {
   padding: 1em 0 2em;
-  height: calc(100vh - 55px - 2em - 25px * 2 - .5em - 3em);
+  height: calc(55vh - 55px - 2em - 25px * 2 - .5em - 3em);
   overflow: auto; }
 #chat .chat__conversation-board__message-container.reversed {
   flex-direction: row-reverse; }
@@ -175,7 +175,7 @@ body {
   fill: transparent;
   stroke: #54575c; }
 #chat .chat__conversation-panel .send-message-button {
-  background: var(--chat-send-button-background);
+  background: #9A170A;
   height: 30px;
   min-width: 30px;
   border-radius: 50%;

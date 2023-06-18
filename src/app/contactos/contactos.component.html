@@ -7,7 +7,7 @@
       <thead>
       <tr>
         <th>Usuario</th>
-        <th>Correo</th>
+        <th>Quien Eres</th>
         <th>Telefono</th>
         <th>FUNCION</th>
         <th>FUNCION 2</th>
@@ -22,12 +22,13 @@
 
 
       <tr *ngFor="let contacto of contactos">
-        <td>{{contacto.nombre}}</td>
         <td>{{contacto.nombreUsuario}}</td>
+        <td>{{contacto.nombre}}</td>
         <td>{{contacto.telefono}}</td>
-        <td> <button class="btn" style="background-color: #D68910; color: #f0f3f4"><a [routerLink]="['/chat', contacto.nombreUsuario]">CHAT</a></button></td>
+        <td> <button [disabled]="contacto.bloqueado == 1" class="btn" style="background-color: limegreen; color: #f0f3f4"><a [routerLink]="['/chat', contacto.nombreUsuario, contacto.nombre]">CHAT</a></button></td>
+        <td> <button class="btn" style="background-color: #D68910;"><a style="color: #f0f3f4" [routerLink]="['/editarc', contacto.id, contacto.nombreUsuario, contacto.nombre, contacto
+        .telefono, contacto.bloqueado]">EDITAR</a></button></td>
         <td> <button type="button" class="btn" style="background-color: #931205; color: #f0f3f4" (click)="eliminar(contacto)"> ELIMINAR</button> </td>
-        <td> <button class="btn" style="background-color: green; color: #f0f3f4" (click)="toggleBlocked(contacto)">CAMBIA</button></td>
       </tr>
 
       </tbody>

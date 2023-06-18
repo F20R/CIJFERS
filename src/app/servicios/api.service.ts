@@ -11,6 +11,9 @@ import {CrearCuentaI} from "../modelos/crearCuenta.interface";
 import {listaPerfilI} from "../modelos/listaPerfil.interface";
 import {CrearContactoI} from "../modelos/crearContacto.interface";
 import {listaChatI} from "../modelos/listaChat.interface";
+import {CrearPerfilI} from "../modelos/crearPerfil.interface";
+import {listaImagenesI} from "../modelos/listaImagenes.interface";
+import {CrearImagenI} from "../modelos/crearImagen.interface";
 
 @Injectable({
   providedIn: 'root'
@@ -83,9 +86,21 @@ export class ApiService {
   }
 
 
+  postNuevaImagen(form : CrearImagenI) : Observable<ResponseI>{
+    let direccion = this.url + 'api/galeria/guardar/nueva';
+    return this.http.post<ResponseI>(direccion,form);
+  }
 
+  getImagenesId():Observable<listaImagenesI[]>{
+    let direccion = this.url + 'api/galeria/list/id';
+    let token = localStorage.getItem('token')!;
+    const httpHeaders = new HttpHeaders({
+      'token': token
+    })
+    return this.http.get<listaImagenesI[]>(direccion, {headers: httpHeaders});
+  }
 
-  postPerfil(form : PerfilI) : Observable<ResponseI>{
+  postPerfil(form : CrearPerfilI) : Observable<ResponseI>{
     let direccion = this.url + 'api/perfil/save';
     return this.http.post<ResponseI>(direccion,form);
   }

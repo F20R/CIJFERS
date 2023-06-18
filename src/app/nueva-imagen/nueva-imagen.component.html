@@ -1,0 +1,46 @@
+<app-navbar></app-navbar>
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="container forget-password" *ngFor="let nuevaImagen of nuevasImagenes">
+  <div class="row">
+    <div class="col-md-12 col-md-offset-4">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <div class="text-center">
+            <img src="https://cdn.icon-icons.com/icons2/1863/PNG/512/add-a-photo_119470.png" alt="car-key" border="0">
+            <h2 class="text-center">¿Quieres añadir una nueva imágen?</h2>
+            <p>Introduce los siguientes datos :</p>
+            <form id="register-form" role="form" autocomplete="off" class="form" [formGroup]="nuevaForm" (ngSubmit)="postForm(nuevaForm.value)" method="post">
+              <div class="form-group">
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="glyphicon glyphicon-envelope color-blue"></i></span>
+                  <input id="forgetAnswers" name="forgetAnswer" placeholder="Url" class="form-control"  type="text" formControlName="url">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="glyphicon glyphicon-envelope color-blue"></i></span>
+                  <input id="forgetAnswer" name="forgetAnswer" placeholder="Descripción de la Imagen" class="form-control"  type="text" formControlName="descripcion">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="glyphicon glyphicon-envelope color-blue"></i></span>
+                  <input  [(ngModel)]="nuevaImagen.username" type="text" readonly="readonly" class="form-control" placeholder="Introduce nombre de usuario" formControlName="usuario">
+                </div>
+              </div>
+              <div class="form-group">
+                <input name="btnForget" class="btn btn-lg btn-primary btn-block btnForget" value="Añadir Imagen" type="submit">
+              </div>
+
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

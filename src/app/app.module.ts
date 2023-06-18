@@ -17,6 +17,10 @@ import { CrearContactoComponent } from './crear-contacto/crear-contacto.componen
 import { ChatComponent } from './chat/chat.component';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {ToastrModule} from "ngx-toastr";
+import { EditcontactoComponent } from './editcontacto/editcontacto.component';
+import { CrearPerfilComponent } from './crear-perfil/crear-perfil.component';
+import { GaleriaComponent } from './galeria/galeria.component';
+import { NuevaImagenComponent } from './nueva-imagen/nueva-imagen.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +34,11 @@ import {ToastrModule} from "ngx-toastr";
     ContactosComponent,
     PerfilComponent,
     CrearContactoComponent,
-    ChatComponent
+    ChatComponent,
+    EditcontactoComponent,
+    CrearPerfilComponent,
+    GaleriaComponent,
+    NuevaImagenComponent
   ],
   imports: [
     BrowserModule,

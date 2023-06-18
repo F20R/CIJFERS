@@ -8,6 +8,10 @@ import {PerfilComponent} from "./perfil/perfil.component";
 import {CrearContactoComponent} from "./crear-contacto/crear-contacto.component";
 import {ChatComponent} from "./chat/chat.component";
 import {AuthGuard} from "./auth.guard";
+import {EditcontactoComponent} from "./editcontacto/editcontacto.component";
+import {CrearPerfilComponent} from "./crear-perfil/crear-perfil.component";
+import {GaleriaComponent} from "./galeria/galeria.component";
+import {NuevaImagenComponent} from "./nueva-imagen/nueva-imagen.component";
 
 const routes: Routes = [
 
@@ -17,7 +21,11 @@ const routes: Routes = [
   {path:'contacto', component:ContactosComponent, canActivate: [AuthGuard]},
   {path:'perfil', component:PerfilComponent},
   {path:'crear', component:CrearContactoComponent},
-  {path:'chat/:nombreUsuario', component:ChatComponent}
+  {path:'editarc/:id/:nombreUsuario/:nombre/:telefono/:bloqueado', component:EditcontactoComponent},
+  {path:'chat/:nombreUsuario/:nombre', component:ChatComponent},
+  {path:'crearPerfil', component:CrearPerfilComponent, canActivate: [AuthGuard]},
+  {path:'nuevaImagen', component:NuevaImagenComponent, canActivate: [AuthGuard]},
+  {path:'galeria', component:GaleriaComponent, canActivate: [AuthGuard]}
 ];
 
 @NgModule({
