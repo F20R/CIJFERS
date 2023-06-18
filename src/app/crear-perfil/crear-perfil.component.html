@@ -23,8 +23,7 @@
         <div class="row mt-3">
           <div class="col-md-6"><label class="labels">Edad</label><input name="edad" type="text" class="form-control" placeholder="edad" formControlName="edad"/></div>
           <div class="col-md-6"><label class="labels">Genero</label><select class="form-select" id="exampleSelect1" formControlName="sexo">
-            <option>1</option>
-            <option>0</option>
+            <option *ngFor="let opcion of opciones" [value]="opcion.value">{{opcion.label}}</option>
           </select></div>
         </div>
         <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="submit">Save Profile</button></div>
@@ -33,7 +32,3 @@
 
   </div>
 </div>
-
-
-
-<app-footer></app-footer>

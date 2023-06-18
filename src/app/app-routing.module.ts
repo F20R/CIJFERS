@@ -11,19 +11,21 @@ import {AuthGuard} from "./auth.guard";
 import {GaleriaComponent} from "./galeria/galeria.component";
 import {NuevaImagenComponent} from "./nueva-imagen/nueva-imagen.component";
 import {CrearPerfilComponent} from "./crear-perfil/crear-perfil.component";
+import {EditcontactoComponent} from "./editcontacto/editcontacto.component";
 
 const routes: Routes = [
 
   {path:'', component:HomeComponent},
   {path:'login', component:LoginComponent},
   {path:'registro', component:RegistroComponent},
-  {path:'contacto', component:ContactosComponent ,canActivate: [AuthGuard]},
-  {path:'perfil', component:PerfilComponent, canActivate: [AuthGuard]},
+  {path:'contacto', component:ContactosComponent, canActivate: [AuthGuard]},
+  {path:'perfil', component:PerfilComponent},
   {path:'crear', component:CrearContactoComponent},
-  {path:'chat/:nombreUsuario', component:ChatComponent},
-  {path:'galeria', component:GaleriaComponent, canActivate: [AuthGuard]},
+  {path:'editarc/:id/:nombreUsuario/:nombre/:telefono/:bloqueado', component:EditcontactoComponent},
+  {path:'chat/:nombreUsuario/:nombre', component:ChatComponent},
+  {path:'crearPerfil', component:CrearPerfilComponent, canActivate: [AuthGuard]},
   {path:'nuevaImagen', component:NuevaImagenComponent, canActivate: [AuthGuard]},
-  {path:'crearPerfil', component:CrearPerfilComponent},
+  {path:'galeria', component:GaleriaComponent, canActivate: [AuthGuard]}
 ];
 
 @NgModule({

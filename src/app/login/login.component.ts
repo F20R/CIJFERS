@@ -42,17 +42,11 @@ export class LoginComponent implements OnInit{
     });
   }
 
-  RedirectCrearCuenta(){
-    this.router.navigate(['login'])
-  }
 
-  RedirectCrearCuenta1(){
+  RedirectCrearCuenta(){
     this.router.navigate(['crearCuenta'])
   }
 
-  RedirectContactos(){
-    this.router.navigate(['contacto'])
-  }
 
 
 }

@@ -47,7 +47,11 @@ export class ContactosComponent implements OnInit{
 
   Redirect(){
     //PARAMETRO
-    this.router.navigate(['chat'] )
+    this.router.navigate(['chat']) //^PAREMTRO )
+  }
+
+  eliminarUser={
+    'id':'31'
   }
 
   eliminar(contacto: any){
@@ -62,45 +66,10 @@ export class ContactosComponent implements OnInit{
 
   }
 
-  apiUrl = 'http://127.0.0.1:8000';
 
-  toggleBlocked(contacto: any) {
+  toggleBlocked(contacto:any) {
     contacto.bloqueado = !contacto.bloqueado;
-
-    const url = `${this.apiUrl}/api/contacto/editar/${contacto.id}`;
-    const body = JSON.stringify(contacto);
-
-    this.http.post(url, body, {
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    }).subscribe(
-      (response) => {
-        console.log('Contacto editado correctamente');
-      },
-      (error) => {
-        console.log('Error al editar el contacto');
-      }
-    );
-  }
-
-
-
-
-  nuevoContacto(){
-    this.router.navigate(['nuevo'])
-  }
-
-  RedirectCrearCuenta(){
-    this.router.navigate(['login'])
-  }
-
-  RedirectCrearCuenta1(){
-    this.router.navigate(['crearCuenta'])
-  }
-
-  RedirectContactos(){
-    this.router.navigate(['contacto'])
+    // Aquí debe enviar una solicitud a su base de datos para actualizar el valor de la propiedad Bloqueado.
   }
 
 

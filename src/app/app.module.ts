@@ -20,6 +20,7 @@ import {ToastrModule} from "ngx-toastr";
 import { GaleriaComponent } from './galeria/galeria.component';
 import { NuevaImagenComponent } from './nueva-imagen/nueva-imagen.component';
 import { CrearPerfilComponent } from './crear-perfil/crear-perfil.component';
+import { EditcontactoComponent } from './editcontacto/editcontacto.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { CrearPerfilComponent } from './crear-perfil/crear-perfil.component';
     ChatComponent,
     GaleriaComponent,
     NuevaImagenComponent,
-    CrearPerfilComponent
+    CrearPerfilComponent,
+    EditcontactoComponent
   ],
   imports: [
     BrowserModule,

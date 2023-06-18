@@ -22,15 +22,11 @@ export class CrearPerfilComponent implements OnInit{
     usuario : new FormControl('')
   })
 
-  transformarValor(valor: number): string {
-    if (valor === 1) {
-      return 'Masculino';
-    } else if (valor === 0) {
-      return 'Femenino';
-    } else {
-      return 'Otro';
-    }
-  }
+  opciones = [
+    {value: '0', label: 'Masculino'},
+    {value: '1', label: 'Femenino'}
+  ];
+
 
   constructor(private api : ApiService, private router:Router, private http: HttpClient,public route:ActivatedRoute) {
   }
@@ -47,49 +43,10 @@ export class CrearPerfilComponent implements OnInit{
       console.log(this.nuevosPerfiles)
     })
   }
-
-  Redirect(){
-    this.router.navigate(['chat'])
-  }
-
-  eliminarUser={
-    'id':'31'
-  }
-  eliminar(){
-
-    const body = JSON.stringify({
-      'id': this.eliminarUser.id
-    })
-    this.http.delete('http://127.0.0.1:8000/api/contacto/delete', {body} ).subscribe()
-
-  }
-
   postFormP(form :any){
     this.api.postPerfil(form).subscribe(data =>{
       console.log(data);
     })
-  }
-
-  nuevoContacto(){
-    this.router.navigate(['nuevo'])
-  }
-
-  RedirectCrearCuenta(){
-    this.router.navigate(['login'])
-  }
-
-  RedirectCrearCuenta1(){
-    this.router.navigate(['crearCuenta'])
-  }
-
-  RedirectContactos(){
-    this.router.navigate(['contacto'])
-  }
-
-
-  logout(){
-    localStorage.removeItem("token");
-    this.router.navigate(['login']);
   }
 
 }

@@ -21,25 +21,17 @@ export class RegistroComponent implements OnInit{
   constructor(private api : ApiService, private router: Router) { }
 
   ngOnInit(): void {
-
   }
-
-  obtenerDatos(){
-    this.api.getAllContactos().subscribe(resp => {
-      this.registros = resp;
-      console.log(this.registros)
-    })
-  }
-
 
   postCrear(form :any){
     this.api.postCrearCuenta(form).subscribe(data =>{
       console.log(data);
     })
+    window.location.href = "/login";
   }
 
-  RedirectCrearPerfil(){
-    this.router.navigate(['crearPerfil'])
+  RedirectCrearCuenta(){
+    this.router.navigate(['login'])
   }
 
   RedirectCrearCuenta1(){

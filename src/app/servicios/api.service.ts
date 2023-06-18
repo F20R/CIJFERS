@@ -109,7 +109,7 @@ export class ApiService {
   }
 
   getChatR():Observable<listaChatI[]>{
-    let direccion = this.url + 'api/chat/list/id/listar?idReceptor=';
+    let direccion = this.url + 'api/chat/list/id/listar?idReceptor=9';
     let token = localStorage.getItem('token')!;
     const httpHeaders = new HttpHeaders({
       'token': token

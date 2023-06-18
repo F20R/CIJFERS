@@ -1,5 +1,7 @@
-<h1 style="background-color: #55ACEE; color: #151414">{{this.route.snapshot.paramMap.get("nombreUsuario")}}</h1>
+<app-navbar></app-navbar>
+
 <div class="--dark-theme" id="chat">
+  <h2 class="card text-white mb-3" style="background-color: #9A170A; color: #f0f3f4; font-size: 20px;">{{this.route.snapshot.paramMap.get("nombreUsuario")}}:</h2>
   <div class="chat__conversation-board">
     <div class="chat__conversation-board__message-container">
 
@@ -44,49 +46,50 @@
       </div>
     </div>
 
-    <!-- BUCLE DE MENSAJES -->
-    <ng-container *ngFor="let chat of chats" >
 
-      <!-- MENSAJES A LA IZQUIERDA -->
-      <div class="chat__conversation-board__message-container reversed" *ngIf="chat.es_mio">
-        <div class="chat__conversation-board__message__person">
-          <div class="chat__conversation-board__message__person__avatar"><img src="https://randomuser.me/api/portraits/men/9.jpg" alt="Dennis Mikle"/></div><span class="chat__conversation-board__message__person__nickname">Dennis Mikle</span>
-        </div>
-        <div class="chat__conversation-board__message__context">
-          <div class="chat__conversation-board__message__bubble"> <span>{{chat.mensaje}}</span></div>
-        </div>
-      </div>
-
-      <!-- MENSAJES DERECHA -->
-
-    </ng-container>
-
-
-
-
-    <div class="chat__conversation-board__message-container" *ngFor="let chat of chats">
+    <!-- MENSAJES A LA IZQUIERDA -->
+    <div class="chat__conversation-board__message-container reversed">
       <div class="chat__conversation-board__message__person">
-        <div class="chat__conversation-board__message__person__avatar" ><img src="https://randomuser.me/api/portraits/men/20.jpg" alt="Monika Figi"/></div><span class="chat__conversation-board__message__person__nickname">Monika Figi</span>
+        <div style="background-color: #9A170A; color: #f0f3f4; margin-top: 10px"></div><span class="chat__conversation-board__message__person__nickname"></span>
       </div>
       <div class="chat__conversation-board__message__context">
-        <div class="chat__conversation-board__message__bubble"> <span>{{chat.mensaje}}</span></div>
+        <div class="chat__conversation-board__message__bubble"> <span>{{emi[0][0].mensaje}}</span></div>
       </div>
     </div>
 
+    <!-- MENSAJES DERECHA -->
+
+    <div class="chat__conversation-board__message-container">
+      <div class="chat__conversation-board__message__person">
+        <div style="background-color: #9A170A; color: #f0f3f4; margin-top: 10px"></div><span class="chat__conversation-board__message__person__nickname"></span>
+      </div>
+      <div class="chat__conversation-board__message__context">
+        <div class="chat__conversation-board__message__bubble"> <span>{{emi[0][1].mensaje}}</span></div>
+      </div>
+    </div>
+
+    <div class="chat__conversation-board__message-container reversed">
+      <div class="chat__conversation-board__message__person">
+        <div style="background-color: #9A170A; color: #f0f3f4; margin-top: 10px"></div><span class="chat__conversation-board__message__person__nickname"></span>
+      </div>
+      <div class="chat__conversation-board__message__context">
+        <div class="chat__conversation-board__message__bubble"> <span>{{emi[0][2].mensaje}}</span></div>
+      </div>
+    </div>
+
+    <div class="chat__conversation-board__message-container">
+      <div class="chat__conversation-board__message__person">
+        <div style="background-color: #9A170A; color: #f0f3f4; margin-top: 10px"></div><span class="chat__conversation-board__message__person__nickname"></span>
+      </div>
+      <div class="chat__conversation-board__message__context">
+        <div class="chat__conversation-board__message__bubble"> <span>{{emi[0][3].mensaje}}</span></div>
+      </div>
+    </div>
 
   </div>
 
-
-
-
-  <div class="chat__conversation-panel">
+  <div class="chat__conversation-panel" >
     <form class="chat__conversation-panel__container"  [formGroup]="chatForm" (ngSubmit)="postChat(chatForm.value)" >
-      <button class="chat__conversation-panel__button panel-item btn-icon add-file-button">
-        <svg class="feather feather-plus sc-dnqmqq jxshSx" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <line x1="12" y1="5" x2="12" y2="19"></line>
-          <line x1="5" y1="12" x2="19" y2="12"></line>
-        </svg>
-      </button>
       <button class="chat__conversation-panel__button panel-item btn-icon emoji-button">
         <svg class="feather feather-smile sc-dnqmqq jxshSx" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <circle cx="12" cy="12" r="10"></circle>
@@ -96,7 +99,7 @@
         </svg>
       </button>
 
-      <input class="chat__conversation-panel__input panel-item" placeholder="Type a message..."formControlName="mensaje"/>
+      <input class="chat__conversation-panel__input panel-item" placeholder="Type a message..." formControlName="mensaje"/>
 
 
 
